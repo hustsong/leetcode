@@ -95,7 +95,5 @@ int main(int argc, char const *argv[])
         iter++;
     }
     
-
-    system("pause");
     return 0;
 }
