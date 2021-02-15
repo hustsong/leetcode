@@ -18,7 +18,7 @@ public:
         {
             // get valid top
             vector<int> top = {};
-            while (true)
+            while (max_heap.size() > 0)
             {
                 if ((*point_iter)[0] - max_heap[0][1] > k)
                 {
@@ -55,11 +55,13 @@ public:
 
 int main(int argc, char const *argv[])
 {
-    vector<vector<int>> points = {{1, 3}, {7, 0}, {5, 10}, {3, -10}};
+    vector<vector<int>> points = {{1,3},{2,0},{5,10},{6,-10}};
     int k = 1;
     Solution sol = Solution();
     int res = sol.findMaxValueOfEquation(points, k);
     cout << res << endl;
+
+    system("pause");
 
     return 0;
 }
