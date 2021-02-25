@@ -25,7 +25,8 @@ class Solution:
                 curr.append(node.val)
 
             if len(curr) == len(nodes):
-                res = node
+                if res is None:
+                    res = node
             return curr
 
         path(root)
