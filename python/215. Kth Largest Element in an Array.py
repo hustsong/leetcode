@@ -1,30 +1,20 @@
+import heapq
+
 from typing import List
 
 
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        pivot = 0
-        low, high = 0, len(nums) - 1
+        heap = []
+        for num in nums:
+            heapq.heappush(heap, num)
+            if len(heap) > k:
+                heapq.heappop(heap)
 
-        while True:
-            # traversal
-            while low < high:
-                if nums[high] > nums[pivot]:
-                    high -= 1
-                    continue
-                if nums[low] < nums[pivot]:
-                    low += 1
-                    continue
-                if nums[high] < nums[pivot]:
-                    temp = nums[pivot]
-                    nums[pivot] = nums[high]
-                    pivot = high
+        return heapq.heappop(heap)
 
 
-            if pivot == k:
-                return nums[pivot]
-
-nums = [3,2,1,5,6,4]
-k = 2
+nums = [3,2,3,1,2,4,5,5,6]
+k = 4
 sol = Solution()
 print(sol.findKthLargest(nums, k))
